@@ -23,12 +23,18 @@ export const plusMinusMutator = {
    * Label displayed when empty.
    * @type {string}
    */
-  MSG_EMPTY_: "",
+  MSG_EMPTY_: '',
   /**
    * Label displayed when not empty.
    * @type {string}
    */
-  MSG_ITEM_: "",
+  MSG_ITEM_: '',
+
+  /**
+   * Input value's type.
+   * @type {string|string[]|null}
+   */
+  VALUE_TYPE: null,
 
   /**
    * @type {Blockly.Input}
@@ -111,10 +117,12 @@ export const plusMinusMutator = {
         this.removeInput('EMPTY');
       }
       this.topInput_ = this.appendValueInput('ADD' + this.itemCount_)
+          .setCheck(this.VALUE_TYPE)
           .appendField(createPlusField(), 'PLUS')
           .appendField(this.MSG_ITEM_);
     } else {
-      this.appendValueInput('ADD' + this.itemCount_);
+      this.appendValueInput('ADD' + this.itemCount_)
+          .setCheck(this.VALUE_TYPE);
     }
     this.itemCount_++;
   },

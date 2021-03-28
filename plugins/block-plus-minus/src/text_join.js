@@ -21,6 +21,12 @@ const textJoinMutator = {
   MSG_ITEM_: Blockly.Msg['TEXT_JOIN_TITLE_CREATEWITH'],
 
   /**
+   * Input value's type.
+   * @type {string|string[]|null}
+   */
+  VALUE_TYPE: 'String',
+
+  /**
    * Removes an input from the end of the block. If we are removing the last
    * input this updates the block to have an 'EMPTY' top input.
    * @this Blockly.Block
